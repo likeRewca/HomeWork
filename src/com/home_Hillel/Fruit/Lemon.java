@@ -9,6 +9,6 @@ public class Lemon extends Fruit{
     @Override
     public void getInfo() {
         System.out.println(TypeOfFruit.FruitType.APPLE + " цвета " + TypeOfFruit.FruitColor.GREEN + "." +
-                "\nЦена за килограмм - " + super.getPrice() + " грн." + " Вес одного составляет " + getWeight() + "г.");
+                "\nЦена за килограмм - " + super.getPrice() + " грн." + " Вес в пакете составляет " + getWeight() + "г.");
     }
 }

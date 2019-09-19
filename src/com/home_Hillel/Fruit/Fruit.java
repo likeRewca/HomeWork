@@ -22,7 +22,7 @@ public class Fruit {
     }
 
     public void getInfo() {
-        System.out.println(type + " цвета " + color + "." + "\nЦена за килограмм - " + price + " грн." + " Вес одного составляет " + weight + "г.");
+        System.out.println(type + " цвета " + color + "." + "\nЦена за килограмм - " + price + " грн." + " Вес в пакете составляет " + weight + "г.");
     }
 
     }
