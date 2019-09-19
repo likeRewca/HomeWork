@@ -27,7 +27,7 @@ public class Main {
         }
         return sumW;
     }
-
+    //Получаем конечную сумму
     public static double countPrice (int w1A, int w2A, int wL, int wB, double p1A, double p2A, double pL, double pB){
         List<Double> pricePackage = Arrays.asList(p1A, p2A, pL, pB);
         List<Integer> weightPackage = Arrays.asList(w1A, w2A, wL, wB);
