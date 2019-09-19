@@ -1,14 +1,8 @@
 package com.home_Hillel.Fruit.Type;
 
-public class TypeOfFruit {
-    public enum FruitType{
+     public enum TypeOfFruit {
         APPLE,
         LEMON,
         BANANA
     }
-    public enum FruitColor{
-        GREEN,
-        RED,
-        YELLOW
-    }
-}
+

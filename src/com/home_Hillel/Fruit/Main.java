@@ -1,26 +1,28 @@
 package com.home_Hillel.Fruit;
 
+
+import com.home_Hillel.Fruit.Type.TypeOfColor;
 import com.home_Hillel.Fruit.Type.TypeOfFruit;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        print("Весь ниже читаемый текст читать в Грузинском акценте, для большей атмосферности!!!");
-        Fruit greenApple = new GreenApple(TypeOfFruit.FruitType.APPLE, TypeOfFruit.FruitColor.GREEN, 200, 80.25);
-        Fruit redApple = new RedApple(TypeOfFruit.FruitType.APPLE, TypeOfFruit.FruitColor.RED, 550, 30.80);
-        Fruit lemon = new Lemon(TypeOfFruit.FruitType.LEMON, TypeOfFruit.FruitColor.YELLOW, 50, 49.99);
-        Fruit banana = new Banana(TypeOfFruit.FruitType.BANANA, TypeOfFruit.FruitColor.YELLOW, 450, 20.99);
+
+        Fruit greenApple = new GreenApple(TypeOfFruit.APPLE, TypeOfColor.GREEN, 200, 80.25);
+        Fruit redApple = new RedApple(TypeOfFruit.APPLE, TypeOfColor.RED, 550, 30.80);
+        Fruit lemon = new Lemon(TypeOfFruit.LEMON, TypeOfColor.YELLOW, 50, 49.99);
+        Fruit banana = new Banana(TypeOfFruit.BANANA, TypeOfColor.YELLOW, 450, 20.99);
         List<Fruit> groceryPackage = Arrays.asList(greenApple, redApple, lemon, banana);
         for (Fruit f : groceryPackage){
-            f.getInfo();
+            System.out.println(f.toString());
         }
-        print("Общий вес: " + getFinaleWeight(greenApple.getWeight(), redApple.getWeight(), lemon.getWeight(), banana.getWeight()) + "г.");
-        print("Общая ценна: " + round(countPrice(greenApple.getWeight(), redApple.getWeight(), lemon.getWeight(), banana.getWeight(),
-                greenApple.getPrice(), redApple.getPrice(), lemon.getPrice(), banana.getPrice())) + "грн.");
+        print("Общий вес: " + getFinaleWeight(greenApple, redApple, lemon, banana) + "г.");
+        print("Общая ценна: " + round(countPrice(greenApple, redApple, lemon, banana))+ "грн.");
     }
-    public static int getFinaleWeight (int greenApple, int redApple, int lemon, int banana){
-        List<Integer> weightPackage = Arrays.asList(greenApple,redApple, lemon, banana);
+    public static int getFinaleWeight (Fruit greenApple, Fruit redApple,Fruit lemon, Fruit banana){
+        List<Integer> weightPackage = Arrays.asList(greenApple.getWeight(),redApple.getWeight(), lemon.getWeight(), banana.getWeight());
         int sumW = 0;
         for (int i = 0; i < weightPackage.size(); i++){
             sumW += weightPackage.get(i);
@@ -28,9 +30,9 @@ public class Main {
         return sumW;
     }
     //Получаем конечную сумму
-    public static double countPrice (int w1A, int w2A, int wL, int wB, double p1A, double p2A, double pL, double pB){
-        List<Double> pricePackage = Arrays.asList(p1A, p2A, pL, pB);
-        List<Integer> weightPackage = Arrays.asList(w1A, w2A, wL, wB);
+    public static double countPrice (Fruit greenApple, Fruit redApple, Fruit lemon, Fruit banana){
+        List<Double> pricePackage = Arrays.asList(greenApple.getPrice(), redApple.getPrice(), lemon.getPrice(), banana.getPrice());
+        List<Integer> weightPackage = Arrays.asList(greenApple.getWeight(),redApple.getWeight(), lemon.getWeight(), banana.getWeight());
         double finaleSum = 0;
         for (int i=0; i< weightPackage.size(); i++){
                 finaleSum += ((pricePackage.get(i) * weightPackage.get(i))/1000.0);
