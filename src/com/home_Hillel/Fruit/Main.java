@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
         Fruit greenApple = new GreenApple(TypeOfFruit.APPLE, TypeOfColor.GREEN, 200, 80.25);
         Fruit redApple = new RedApple(TypeOfFruit.APPLE, TypeOfColor.RED, 550, 30.80);
         Fruit lemon = new Lemon(TypeOfFruit.LEMON, TypeOfColor.YELLOW, 50, 49.99);
@@ -21,21 +20,18 @@ public class Main {
         print("Общий вес: " + getFinaleWeight(greenApple, redApple, lemon, banana) + "г.");
         print("Общая ценна: " + round(countPrice(greenApple, redApple, lemon, banana))+ "грн.");
     }
-    public static int getFinaleWeight (Fruit greenApple, Fruit redApple,Fruit lemon, Fruit banana){
-        List<Integer> weightPackage = Arrays.asList(greenApple.getWeight(),redApple.getWeight(), lemon.getWeight(), banana.getWeight());
+    public static int getFinaleWeight (Fruit ... fruits){
         int sumW = 0;
-        for (int i = 0; i < weightPackage.size(); i++){
-            sumW += weightPackage.get(i);
+        for (int i = 0; i < fruits.length; i++){
+            sumW += fruits[i].getWeight();
         }
         return sumW;
     }
     //Получаем конечную сумму
-    public static double countPrice (Fruit greenApple, Fruit redApple, Fruit lemon, Fruit banana){
-        List<Double> pricePackage = Arrays.asList(greenApple.getPrice(), redApple.getPrice(), lemon.getPrice(), banana.getPrice());
-        List<Integer> weightPackage = Arrays.asList(greenApple.getWeight(),redApple.getWeight(), lemon.getWeight(), banana.getWeight());
+    public static double countPrice (Fruit ... fruits){
         double finaleSum = 0;
-        for (int i=0; i< weightPackage.size(); i++){
-                finaleSum += ((pricePackage.get(i) * weightPackage.get(i))/1000.0);
+        for (int i=0; i< fruits.length; i++){
+                finaleSum += ((fruits[i].getPrice() * fruits[i].getWeight())/1000.0);
         }
         return finaleSum;
     }
