@@ -1,9 +1,7 @@
 package com.home_Hillel.Fruit;
 
-
 import com.home_Hillel.Fruit.Type.TypeOfColor;
 import com.home_Hillel.Fruit.Type.TypeOfFruit;
-
 import java.util.Arrays;
 import java.util.List;
 
